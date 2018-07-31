@@ -1,4 +1,4 @@
 module.exports = {
-  mongodb:'tyler:Hammer12@ds253831.mlab.com:53831/planitdb',
+  mongodb: "Tyler:Hammer12@ds159631.mlab.com:59631/planitdb",
   secretOrKey: 'secret'
 };
