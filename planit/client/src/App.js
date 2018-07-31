@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import store from './store';
 import axios from 'axios';
 import './App.css';
 import HomePage from './pages/HomePage/HomePage';
@@ -10,6 +12,7 @@ import Signup from './components/Signup';
 import LoginForm from './components/LoginForm';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+
 
 const AppContext = React.createContext()
 
@@ -75,6 +78,7 @@ class App extends Component {
   }
   render() {
     return (
+      <Provider store={ store }>
       <Router>
         <Fragment>
           <NavBar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
@@ -97,6 +101,7 @@ class App extends Component {
           <Footer />
         </Fragment>
       </Router>
+      </Provider>
     );
   }
 }

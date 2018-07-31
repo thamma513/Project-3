@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose', { useNewUrlParser: true });
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
@@ -14,10 +14,11 @@ app.use(bodyParser.json());
 
 // DB Config
 const db = require('./config/keys').mongoURI;
-
+//this is trying to call the keys_dev which does not have mongoURI in it so it's reading db as undefined
+console.log('db is ' + db);
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
